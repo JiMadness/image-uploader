@@ -1,0 +1,7 @@
+.idea
+node_modules
+JetBrains.Dockerfile
+.npmrc
+.yalc
+yalc.lock
+.vscode

@@ -1,0 +1,31 @@
+{
+  "name": "metadata-extractor",
+  "description": "An express server capable of downloading all of the project Gutenberg titles, parsing their metadata, and storing them in MongoDB",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "client": "curl localhost:3000 --max-time 1800000",
+    "lint": "eslint .",
+    "test": "mocha --reporter spec --recursive --ui bdd --bail --timeout 10000 ./tests"
+  },
+  "dependencies": {
+    "adm-zip": "^0.4.14",
+    "assert": "^2.0.0",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "express": "~4.16.1",
+    "lodash": "^4.17.15",
+    "mongodb": "^3.5.8",
+    "morgan": "~1.9.1",
+    "recursive-readdir": "^2.2.2",
+    "tar": "^6.0.2",
+    "uuid": "^8.1.0",
+    "xml2js": "^0.4.23"
+  },
+  "devDependencies": {
+    "eslint": "^7.1.0",
+    "eslint-config-google": "^0.14.0",
+    "mocha": "^7.2.0"
+  }
+}

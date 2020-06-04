@@ -1,0 +1,26 @@
+'use strict';
+
+/**
+ * Module dependencies.
+ */
+const path = require('path');
+const Server = require(path.join(__dirname.split('bin')[0], 'lib', 'server'));
+
+/**
+ * Import environment variables.
+ */
+require('dotenv').config();
+
+/**
+ * Create a new server instance and start it.
+ */
+new Server({
+  env: process.env.ENV,
+  port: process.env.PORT,
+  feedUrl: process.env.FEED_URL,
+  tempPath: process.env.TEMP_PATH,
+  timeout: +process.env.TIMEOUT,
+  url: process.env.URL,
+  db: process.env.DB,
+  collection: process.env.COLLECTION,
+}).start();
