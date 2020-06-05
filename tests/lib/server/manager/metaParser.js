@@ -56,7 +56,7 @@ describe('Server - Manager - MetaParser:', function() {
 
     describe('Parse:', function() {
       describe('Failures:', function() {
-        it('should throw an exception if `parser.parseStringPromise` fails.',
+        it('should throw an exception if `fs.readFileSync` fails.',
             async function() {
               const fakeError = new Error();
 
