@@ -1,27 +1,31 @@
 {
-  "name": "metadata-extractor",
-  "description": "An express server capable of downloading all of the project Gutenberg titles, parsing their metadata, and storing them in MongoDB",
+  "name": "image-uploader",
+  "description": "An API to enable system users to securely upload images provided that they are authenticated.",
   "version": "0.0.0",
   "private": true,
+  "main": "./bin/www",
   "scripts": {
     "start": "node ./bin/www",
-    "client": "curl localhost:3000 --max-time 1800000",
+    "deploy": "serverless deploy",
     "lint": "eslint .",
     "test": "mocha --reporter spec --recursive --ui bdd --bail --timeout 10000 ./tests"
   },
   "dependencies": {
-    "adm-zip": "^0.4.14",
     "assert": "^2.0.0",
+    "aws-sdk": "^2.738.0",
+    "bcryptjs": "^2.4.3",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
+    "exif-parser": "^0.1.12",
     "express": "~4.16.1",
+    "express-jwt": "^6.0.0",
+    "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
     "mongodb": "^3.5.8",
     "morgan": "~1.9.1",
-    "recursive-readdir": "^2.2.2",
-    "tar": "^6.0.2",
-    "uuid": "^8.1.0",
-    "xml2js": "^0.4.23"
+    "multer": "^1.4.2",
+    "serverless-http": "^2.5.0",
+    "uuid": "^8.1.0"
   },
   "devDependencies": {
     "eslint": "^7.1.0",

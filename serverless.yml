@@ -1,0 +1,15 @@
+service: image-uploader
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: eu-west-1
+  memorySize: 128
+functions:
+  image-uploader:
+    handler: bin/www.handler
+    events:
+      - http:
+          path: /{proxy+}
+          method: ANY
+          cors: true

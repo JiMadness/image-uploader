@@ -4,6 +4,7 @@
  * Module dependencies.
  */
 const path = require('path');
+const serverless = require('serverless-http');
 const Server = require(path.join(__dirname.split('bin')[0], 'lib', 'server'));
 
 /**
@@ -12,15 +13,38 @@ const Server = require(path.join(__dirname.split('bin')[0], 'lib', 'server'));
 require('dotenv').config();
 
 /**
- * Create a new server instance and start it.
+ * Create a new server instance.
  */
-new Server({
+const server = new Server({
   env: process.env.ENV,
   port: process.env.PORT,
-  feedUrl: process.env.FEED_URL,
-  tempPath: process.env.TEMP_PATH,
   timeout: +process.env.TIMEOUT,
   url: process.env.URL,
   db: process.env.DB,
   collection: process.env.COLLECTION,
-}).start();
+  bucket: process.env.S3_BUCKET_NAME,
+  jwtSecret: process.env.JWT_SECRET,
+  jwtExcluded: process.env.JWT_EXCLUDED,
+});
+
+if (process.env.ENV === 'serverless') {
+  module.exports.handler = async function(event, context) {
+    /**
+     * Initialize server instance.
+     */
+    await server.init();
+
+    /**
+     * Call serverless handler.
+     */
+    return await serverless(server.getExpressApp())(event, context);
+  };
+} else {
+  /**
+   * Initialize server instance and start http server.
+   */
+  (async function() {
+    await server.init();
+    server.start();
+  }());
+}
