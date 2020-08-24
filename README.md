@@ -4,7 +4,7 @@ An API to enable system users to securely upload images provided that they are a
 
 ## Usage
 1. Execute `npm run start` to start the server.
-2. Execute `npm run deploy` to initiate the processing request.
+2. Execute `npm run deploy` to initiate the lambda deployment.
 
 ## Linting
 This module uses `eslint` for linting. Run `npm run lint` to check the code for linting errors.
