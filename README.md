@@ -22,3 +22,4 @@ This module uses JsDoc for documentation.
 * Complete the testing coverage for the module.
 
 ## How to test?
+API Documentation: https://documenter.getpostman.com/view/5150256/TVCY4qrH
